@@ -8,7 +8,6 @@ const server = http.createServer(app);
 
 const start = async () => {
     try {
-        // Call DB
         connectDB();
 
         server.listen(PORT, () => {

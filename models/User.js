@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 
-// Username, Email, password
-
-const userScheama = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
+        googleId: {
+            type: String,
+            required: true,
+            unique: true, // Ensure googleId is unique
+        },
         username: {
             type: String,
             required: true,
@@ -11,10 +14,7 @@ const userScheama = new mongoose.Schema(
         email: {
             type: String,
             required: true,
-        },
-        password: {
-            type: String,
-            required: true,
+            unique: true,
         },
     },
     {
@@ -25,6 +25,6 @@ const userScheama = new mongoose.Schema(
     }
 );
 
-const User = mongoose.model("User", userScheama);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
